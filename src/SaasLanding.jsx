@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
     import { ArrowRight, Check, Star, User, Zap, Shield } from 'lucide-react';
 
     const SaasLanding = () => {
+      const [notes, setNotes] = useState('');
+
+      const handleNoteChange = (event) => {
+        setNotes(event.target.value);
+      };
+
       return (
         <div className="min-h-screen bg-gray-50">
           {/* Navigation */}
@@ -81,6 +87,17 @@ import React from 'react';
                     <p className="mt-2 text-gray-500 text-center">{feature.description}</p>
                   </div>
                 ))}
+              </div>
+              <div className="mt-8">
+                <h3 className="text-xl font-medium text-gray-900 text-center mb-4">
+                  Notes
+                </h3>
+                <textarea
+                  className="w-full h-32 p-2 border rounded-md text-gray-700"
+                  placeholder="Add your notes here..."
+                  value={notes}
+                  onChange={handleNoteChange}
+                />
               </div>
             </div>
           </div>
